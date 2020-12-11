@@ -1,9 +1,10 @@
+import PropTypes from 'prop-types';
+
 import Section from '../Section';
 import s from './Statistics.module.css';
 import Notification from '../Notification';
 
 function Statistics({ good, bad, neutral, total, precent }) {
-  console.log(typeof good);
   return (
     <Section title="Statistics">
       {total === 0 && <Notification message="No feedback given" />}
@@ -34,4 +35,13 @@ function Statistics({ good, bad, neutral, total, precent }) {
     </Section>
   );
 }
+
+Statistics.propTypes = {
+  good: PropTypes.number.isRequired,
+  bad: PropTypes.number.isRequired,
+  neutral: PropTypes.number.isRequired,
+  total: PropTypes.number.isRequired,
+  precent: PropTypes.number.isRequired,
+};
+
 export default Statistics;
